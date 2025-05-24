@@ -21,6 +21,7 @@
 
   <modules>
     <module>microservice-gateway</module>
+    <module>microservice-aureka</module>
   </modules>
 
 
