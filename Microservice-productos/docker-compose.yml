@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mydb:
+    image: mysql:8.0
+    container_name: mysql-producto
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: productodb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_producto_data:/var/lib/mysql
+    restart: always
+    networks:
+      - app-network
+
+# Define the custom network
+networks:
+  app-network:
+    driver: bridge # Use the default bridge network driver
+
+# Define the named volume for data persistence
+volumes:
+  mysql_producto_data:
+    driver: local
