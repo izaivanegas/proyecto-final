@@ -24,6 +24,7 @@
     <module>microservice-aureka</module>
     <module>microservice-config</module>
     <module>microservice-productos</module>
+    <module>microservicio-inventario</module>
   </modules>
 
 
