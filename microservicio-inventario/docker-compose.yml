@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mydbpost:
+    image: postgres:15
+    container_name: postgres-inventario
+    environment:
+      POSTGRES_DB: inventariodb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_inventario_data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app-network
+
+# Define the custom network
+networks:
+  app-network:
+    driver: bridge # Use the default bridge network driver
+
+# Define the named volume for data persistence
+volumes:
+  postgres_inventario_data:
+    driver: local
