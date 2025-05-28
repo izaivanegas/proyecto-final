@@ -27,17 +27,28 @@ public class ProductoServiceImpl implements ProductoService {
 
    @Override
    public Producto findProductoById(Long id) {
-      return null;
+
+      return this.productoRepository.findById(id).orElse(null);
+
    }
 
    @Override
    public Producto crearProducto(Producto producto) {
-      return null;
+      return this.productoRepository.save(producto);
    }
 
    @Override
    public Producto actualizarProducto(Producto producto, Long id) {
-      return null;
+      var productoEncontrado = this.productoRepository.findById(id).orElse(null);
+      if( productoEncontrado!= null ){
+         productoEncontrado.setNombre(producto.getNombre());
+         productoEncontrado.setDescripcion(producto.getDescripcion());
+         productoEncontrado.setSku(producto.getSku());
+         productoEncontrado.setPrecio(producto.getPrecio());
+         return productoRepository.save(productoEncontrado);
+      }
+      return  null;
+
    }
 
     @Override
