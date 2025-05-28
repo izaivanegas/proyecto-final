@@ -29,18 +29,24 @@ public class ProductoController {
 
     @PostMapping("nuevo")
     public ResponseEntity<Producto> crearProducto(@RequestBody Producto producto, UriComponentsBuilder ucb){
-
         URI uriEmpleado = ucb
                 .path("/producto/nuevo/{id}")
                 .buildAndExpand(this.productoService.crearProducto(producto).getId())
                 .toUri();
-
         return ResponseEntity.created(uriEmpleado).build();
     }
 
 
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<Producto> actualizarProducto(@RequestBody Producto producto, @PathVariable("id") Long id){
+        return ResponseEntity.ok(this.productoService.actualizarProducto(producto,id));
+    }
 
 
-
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<Void> eliminarProducto(@PathVariable("id") Long id){
+        this.productoService.eliminarProducto(id);
+        return ResponseEntity.ok().build();
+    }
 
 }
