@@ -1,5 +1,8 @@
 package com.microservice.productos.microservice_productos.service.impl;
 
+import com.microservice.productos.microservice_productos.client.InventarioClient;
+import com.microservice.productos.microservice_productos.dto.InventarioDTO;
+import com.microservice.productos.microservice_productos.http.response.InventarioByProductoResponse;
 import com.microservice.productos.microservice_productos.model.Producto;
 import com.microservice.productos.microservice_productos.repository.ProductoRepository;
 import com.microservice.productos.microservice_productos.service.ProductoService;
@@ -18,6 +21,8 @@ public class ProductoServiceImpl implements ProductoService {
 
 
    private final ProductoRepository productoRepository;
+
+   private final InventarioClient inventarioClient;
 
 
    @Override
@@ -55,6 +60,27 @@ public class ProductoServiceImpl implements ProductoService {
     public void eliminarProducto(Long id) {
         productoRepository.deleteById(id);
     }
+
+
+   @Override
+   public InventarioByProductoResponse findStockInformationByProductoId(Long idProducto) {
+
+      //Obtenemos la informacion de mi producto
+      var producto = this.productoRepository.findById(idProducto).orElse(new Producto());
+      if(producto.getId()!=null){
+         //ahora se obtiene la informacion del stock para el producto
+         InventarioDTO inventarioDTO =  this.inventarioClient.getProductStockById(producto.getId());
+
+         return InventarioByProductoResponse.builder()
+                 .nombre(producto.getNombre())
+                 .sku(producto.getSku())
+                 .descripcion(producto.getDescripcion())
+                 .precio(producto.getPrecio())
+                 .inventario(inventarioDTO).build();
+      }
+
+      return null;
+   }
 
 
 }

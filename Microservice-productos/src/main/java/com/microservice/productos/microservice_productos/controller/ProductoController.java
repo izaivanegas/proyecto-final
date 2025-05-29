@@ -1,8 +1,10 @@
 package com.microservice.productos.microservice_productos.controller;
 
+import com.microservice.productos.microservice_productos.http.response.InventarioByProductoResponse;
 import com.microservice.productos.microservice_productos.model.Producto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.microservice.productos.microservice_productos.service.ProductoService;
@@ -48,5 +50,13 @@ public class ProductoController {
         this.productoService.eliminarProducto(id);
         return ResponseEntity.ok().build();
     }
+
+
+
+    @GetMapping("/stockinventario/{idProduct}")
+    public ResponseEntity<InventarioByProductoResponse> findInventariobyIdProducto(@PathVariable("idProduct") Long idProduct ){
+        return ResponseEntity.ok(this.productoService.findStockInformationByProductoId(idProduct));
+    }
+
 
 }
