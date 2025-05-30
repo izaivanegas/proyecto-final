@@ -15,7 +15,7 @@ import java.util.List;
 
 @Data
 @RestController
-@RequestMapping("/producto/")
+@RequestMapping("/producto")
 @AllArgsConstructor
 public class ProductoController {
 
