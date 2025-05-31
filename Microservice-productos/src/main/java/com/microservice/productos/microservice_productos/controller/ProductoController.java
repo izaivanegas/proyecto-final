@@ -59,4 +59,11 @@ public class ProductoController {
     }
 
 
+    @GetMapping("/busca/{id}")
+    public ResponseEntity<Producto> findProductoById(@PathVariable("id") Long id){
+        Producto producto = this.productoService.findProductoById(id);
+        return producto!=null?ResponseEntity.ok(producto):ResponseEntity.notFound().build();
+
+    }
+
 }
