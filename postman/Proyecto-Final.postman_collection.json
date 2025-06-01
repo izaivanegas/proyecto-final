@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "91405457-6482-43bb-be45-c2e8a8c4cf2e",
+		"name": "Proyecto-Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11591416"
+	},
+	"item": [
+		{
+			"name": "productos",
+			"item": [
+				{
+					"name": "gateway",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Test ms comunicacion",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "actuator",
+					"item": [
+						{
+							"name": "health",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/actuator/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "metrics",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "dev",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/actuator/env",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"actuator",
+										"env"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "endpoints",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Muestra Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/producto/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"producto",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreaProducto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"sku\": \"PCE-NEG-27-INT-I5\",\n    \"nombre\": \"PC Escritorio\",\n    \"descripcion\": \"Pc de escritorio\",\n    \"precio\": 17000.0\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/producto/nuevo",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"producto",
+								"nuevo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"sku\": \"PCE-NEG-32-INT-I5\",\n    \"nombre\": \"PC Escritorio test\",\n    \"descripcion\": \"Pc de escritorio test\",\n    \"precio\": 17050.0\n    \n}"
+						},
+						"url": {
+							"raw": "localhost:8080/producto/actualizar/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"producto",
+								"actualizar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"sku\": \"PCE-NEG-32-INT-I5\",\n    \"nombre\": \"PC Escritorio test\",\n    \"descripcion\": \"Pc de escritorio test\",\n    \"precio\": 17050.0\n    \n}"
+						},
+						"url": {
+							"raw": "localhost:9090/producto/eliminar/3",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"producto",
+								"eliminar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Prueba ms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/producto/stockinventario/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"producto",
+								"stockinventario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/producto/busca/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"producto",
+								"busca",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventario",
+			"item": [
+				{
+					"name": "actuator",
+					"item": [
+						{
+							"name": "health",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/actuator/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "metrics",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "dev",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/actuator/env",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"actuator",
+										"env"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "endpoints",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Recupera Stock",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
