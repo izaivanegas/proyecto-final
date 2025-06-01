@@ -2,8 +2,8 @@ FROM azul/zulu-openjdk:17-jre
 
 WORKDIR /app
 
-COPY target/microservice-productos-0.0.1-SNAPSHOT.jar app.jar
+COPY target/microservice-config-0.0.1-SNAPSHOT.jar app.jar
 
-EXPOSE 9090
+EXPOSE 8888
 
 CMD ["java","-jar","app.jar"]

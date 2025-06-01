@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  configservice:
+    image: configservice:latest
+    container_name: configservice
+    build:
+      context: .
+    ports:
+      - "8888:8888"
+    networks:
+      - app-network
+
+
+# Define the custom network
+networks:
+  app-network:
+    driver: bridge # Use the default bridge network driver
+

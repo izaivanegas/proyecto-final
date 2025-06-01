@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  configservice:
+    image: configservice:latest
+    container_name: configservice
+    build:
+      context: .
+    ports:
+      - "8888:8888"
+    networks:
+      - app-network
+  eurekaservice:
+    image: eurekaservice:latest
+    container_name: eurekaservice
+    build:
+      context: .
+    ports:
+      - "8761:8761"
+    networks:
+      - app-network
+    depends_on:
+      - configservice
+
+# Define the custom network
+networks:
+  app-network:
+    driver: bridge
+
