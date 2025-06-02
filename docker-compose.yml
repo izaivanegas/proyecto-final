@@ -1,3 +1,16 @@
+
+#
+#
+# nota.- se debe de generar un solo archivo docker-compose donde se agregaran todos los servicios
+# incluyendo los servicios de las bases de datos que actualmente lo ejecute en cada uno de los microservicios
+# entonces no vamos a tener un docker-compose por microservicio si no uno en el proyecto principal para que este
+# pueda indicar tambien que los 3 microservicios de productos, inventario y eureka tienen una dependencia
+# y tambien para que todos esten en la misma definicion del network para que se puedan conectar y en lugar de
+# hacer referencia a localhost se haga referencia al microservicio por su identificacion entonces esto quedara
+# pendiente por que se acabo el tiempo de entrega
+#
+#
+#
 version: '3.9'
 
 services:
