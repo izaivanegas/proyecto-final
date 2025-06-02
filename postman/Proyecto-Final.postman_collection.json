@@ -13,7 +13,7 @@
 					"name": "gateway",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "Todos Productos desde gateway",
 							"request": {
 								"method": "GET",
 								"header": []
